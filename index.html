@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Hotel Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Css\style.css">
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header" id="navigation-menu">
+    <div class="container">
+      <nav>
+        <a href="#" class="logo"> <img src="images\page1\lake1.png" alt=""> </a>
+
+        <ul class="nav-menu">
+          <li> <a href="#home" class="nav-link">Home</a> </li>
+          <li> <a href="#about" class="nav-link">About</a> </li>
+          <li> <a href="#g3" class="nav-link">Rooms</a> </li>
+          <li> <a href="#restaurant" class="nav-link">Restaurant</a> </li>
+          <li> <a href="#g54" class="nav-link">Gallery</a> </li>
+          <li> <a href="#g12" class="nav-link">Contact</a> </li>
+        </ul>
+
+        <div class="hambuger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <script>
+    const hambuger = document.querySelector('.hambuger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hambuger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+      hambuger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    }
+
+    const navLink = document.querySelectorAll('.nav-link');
+    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+      hambuger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  </script>
+
+  <section class="home" id="home">
+    <div class="head_container">
+      <div class="box">
+        <div class="text">
+          <h1>The Lakeshore Hotel</h1>
+          <p>The Hotel is a high-end boutique hotel known for its top-notch service and gorgeous individually decorated rooms. Its rooms and suites have elegant, stylish decor and great amenities, including DDC28 toiletries, flat-screen TVs with movies on demand, and free Wi-Fi. Most units also have wood-burning fireplaces, full kitchens, and terraces </p>
+          <button><a href="reservation.php"><h3>BOOK NOW</h3></a></button>
+        </div>
+      </div>
+      <div class="image">
+        <img src="images\page1\home1.jpg" class="slide">
+      </div>
+      <div class="image_item">
+        <img src="images\page1\home1.jpg" alt="" class="slide active" onclick="img('home1.jpg')">
+        <img src="images\page1\home2.jpg" alt="" class="slide" onclick="img('home2.jpg')">
+        <img src="images\page1\home3.jpg" alt="" class="slide" onclick="img('home3.jpg')">
+        <img src="images\page1\home4.jpg" alt="" class="slide" onclick="img('home4.jpg')">
+      </div>
+    </div>
+  </section>
+  <script>
+    function img(anything) {
+      document.querySelector('.slide').src = anything;
+    }
+
+    function change(change) {
+      const line = document.querySelector('.image');
+      line.style.background = change;
+    }
+  </script>
+  <section class="book">
+    <div class="container flex">
+      <div class="input grid">
+        <div class="box">
+          <label>Check-in:</label>
+          <input type="date" placeholder="Check-in-Date">
+        </div>
+        <div class="box">
+          <label>Check-out:</label>
+          <input type="date" placeholder="Check-out-Date">
+        </div>
+        <div class="box">
+          <label>Adults:</label> <br>
+          <input type="number" placeholder="0">
+        </div>
+        <div class="box">
+          <label>Children:</label> <br>
+          <input type="number" placeholder="0">
+        </div>
+      </div>
+      <div class="search">
+        <input type="submit" value="SEARCH">
+      </div>
+    </div>
+  </section>
+
+  <section class="about top" id="about">
+    <div class="container flex">
+      <div class="left">
+        <div class="img">
+          <img src="images\page1\a1.jpg" alt="" class="image1">
+          <img src="images\page1\a2.jpg" alt="" class="image2">
+        </div>
+      </div>
+      <div class="right">
+        <div class="heading">
+          <h5>RAISING COMFOMRT TO THE HIGHEST LEVEL</h5>
+          <h2>Welcome to  The Lakeshore Hotel world's first super boutique hotel.</h2>
+
+                 <p1>Our hotel business was founded in 2006 by its majority owner, Mactaggart Family & Partners, led by Executive Chairman Sir John Mactaggart. Surrounded by the captials greenery & most coveted shopping streets,our hotel offers spacious,comfortable guestrooms.Guest can enjoy drinks,meals and snacks at our cafe and restaurant Relax in the hotel luxuary spa,dip in the pool or hit the fitness club.
+
+                  We look forward to welcoming you to our beautiful hotel on your next visit.</p1>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="wrapper top">
+    <div class="container">
+      <div class="text">
+        <h2>Our Services & Amenities</h2>
+        <p>We pride ourselves on the consistently outstanding reviews we receive for our service. Our attentive teams specialise in providing every guest with a truly personalised stay, which combined with our extremely comfortable and well-appointed rooms, ensures an enriching and memorable experience for all who stay with us.
+
+        </p>
+
+        <div class="content">
+          <div class="box flex">
+            <i class="fas fa-swimming-pool"></i>
+            <span>Swimming pool</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-dumbbell"></i>
+            <span>Gym & yoga</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-spa"></i>
+            <span>Spa & massage</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-ship"></i>
+            <span>Boat Tours</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-swimmer"></i>
+            <span>Surfing Lessons</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-microphone"></i>
+            <span>Conference room</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-water"></i>
+            <span>Diving & smorking</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-umbrella-beach"></i>
+            <span>Private Beach</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="room top" id="room">
+    <div class="container" id="g3">
+      <div class="heading_top flex1">
+        <div class="heading">
+          <h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
+          <h2>Rooms $ Suites</h2>
+        </div>
+        <div class="button">
+          <button class="btn1"><a href="reservation.php">VIEW ALL</a></button>
+        </div>
+      </div>
+
+      <div class="content grid">
+        <div class="box">
+          <div class="img">
+            <img src="images\page1\r2.jpg" alt="">
+          </div>
+          <div class="text">
+            <h3>Standard Double Rooms</h3>
+            <p1>Our Standard Double rooms are designed with style and comfort in mind. The rooms include a pocket-sprung double bed with spacious bathrooms.</p1>
+            <p> <span>$</span>140 <span>/per night</span> </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img">
+            <img src="images\page1\r1.jpg" alt="">
+          </div>
+          <div class="text">
+            <h3>King size Rooms</h3>
+            <p1>Our King rooms, are designed with style and comfort in mind. The rooms include a pocket-sprung king bed with spacious bathrooms.</p1>
+            <p> <span>$</span>180<span>/per night</span> </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img">
+            <img src="images\page1\r3.jpg" alt="">
+          </div>
+          <div class="text">
+            <h3>Superior  Rooms</h3>
+            <p1> Our Superior rooms include a stylish pocket-sprung king bed or two single beds with the option for an additional pull-out bed if requested.</p1>
+            <p> <span>$</span>250<span>/per night</span> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="wrapper wrapper2 top">
+    <div class="container">
+      <div class="text">
+        <div class="heading">
+          <h5>AT THE HEART OF COMMUNICATION</h5>
+          <h2>People Say</h2>
+        </div>
+
+        <div class="para">
+          <p>The staff at the Resident were notably friendly and welcoming.What a fabulous place to stay i had read really good reviews about this hotel and believe me they were correct.the hotel was spotless in everyway and they made you feel so welcome i would certainly stay here again without doubt and also very reasonably price. </p>
+
+          <div class="box flex">
+            <div class="img">
+              <img src="images\page1\c.jpg" alt="">
+            </div>
+            <div class="name">
+              <h5>KATE PALMER</h5>
+              <h5>IDAHO</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="restaurant top" id="restaurant">
+    <div class="container flex">
+      <div class="left">
+        <img src="images\page1\re.jpg" alt="">
+      </div>
+      <div class="right">
+        <div class="text">
+          <h2>Our Restaurant</h2>
+          <p> Our food and beverage offering will showcase the best of local produce, ensuring quality British ingredients are used in a modern, classic way. Our menus will feature signature dishes which will be available daily alongside a selection of daily, weekly and seasonal specials.</p>
+        </div>
+        <div class="accordionWrapper">
+          <div class="accordionItem open">
+            <h2 class="accordionIHeading">Italian Kitchen</h2>
+            <div class="accordionItemContent">
+              <p>An authentic Italian meal is a true culinary experience, an enrichment. Italians enjoy leisurely meals of many courses, with a great melding of flavors, aromas, colors and textures. And virtually every dish — seafood, pasta, breads, soups, stews, grains — is wonderfully seasoned with aromatic spices.
+              </p>
+            </div>
+          </div>
+          <div class="accordionItem close">
+            <h2 class="accordionIHeading">Mexican Kitchen</h2>
+            <div class="accordionItemContent">
+              <p>Come Alive With The Delicious Mexican Flavors Of Delimex Frozen Street Style Taquitos. Serve A Delicious Meal With Authentic Mexican Style Flavors. Alive With Delimex. High Quality Ingredients.
+              </p>
+            </div>
+          </div>
+          <div class="accordionItem close">
+            <h2 class="accordionIHeading">Indian Kitchen</h2>
+            <div class="accordionItemContent">
+              <p>Traditional Indian food is renowned worldwide for its wonderful use of herbs and spices, and its diverse range of deep-fried snacks, pastries, curries, gravies, sauces, rice dishes, tandoor-cooked meats, vegetable dishes, chutneys, breads and sweets.
+              </p>
+            </div>
+          </div>
+          <div class="accordionItem close">
+            <h2 class="accordionIHeading">Chienese Kitchen</h2>
+            <div class="accordionItemContent">
+              <p>Chinese traditional dishes are famous for their color, aroma, taste, meanings, and appearance.which include Sichuan Cuisine, Hunan Cuisine, Shandong Cuisine, Zhejiang Cuisine, Fujian Cuisine, Anhui Cuisine, Cantonese Cuisine, and Jiangsu Cuisine. Each cuisine has its popular dishes.
+              </p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    var accItem = document.getElementsByClassName('accordionItem');
+    var accHD = document.getElementsByClassName('accordionIHeading');
+
+    for (i = 0; i < accHD.length; i++) {
+      accHD[i].addEventListener('click', toggleItem, false);
+    }
+
+    function toggleItem() {
+      var itemClass = this.parentNode.className;
+      for (var i = 0; i < accItem.length; i++) {
+        accItem[i].className = 'accordionItem close';
+      }
+      if (itemClass == 'accordionItem close') {
+        this.parentNode.className = 'accordionItem open';
+      }
+    }
+  </script>
+
+
+
+  <section class="gallary mtop " id="gallary">
+    <div class="container" id=g54>
+      <div class="heading_top flex1">
+        <div class="heading">
+          <h5>WELCOME TO OUR PHOTO GALLERY</h5>
+          <h2>Photo Gallery of Our Hotel</h2>
+        </div>
+        <div class="button">
+          <a href="gallry.html">
+          <button class="btn1">VIEW GALLERY</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="owl-carousel owl-theme">
+        <div class="item">
+          <img src="images\page1\d3.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="images\page1\m1.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="images\page1\gy1.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="images\page1\b4.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="images\page1\g5.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="images\page1\b2.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="images\page1\g7.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="images\page1\b3.jpg" alt="">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      dots: false,
+      navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1000: {
+          items: 4
+        }
+      }
+    })
+  </script>
+
+
+
+  <section class="map top">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14131.036667732067!2d85.32395955!3d27.69383745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1637755481449!5m2!1sen!2snp" width="600" height="450" style="border:0;"
+      allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+
+  <footer>
+    <div class="container grid top" id="g12">
+      
+      <div class="box">
+        <img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/48/000000/external-hotel-hotel-services-and-city-elements-flatart-icons-flat-flatarticons-1.png" />
+        <p>Payment can be done thorugh any of the following methods</p>
+
+        <p>Accepted payment methods</p>
+        <div class="payment grid">
+          <img src="https://img.icons8.com/color/48/000000/visa.png" />
+          <img src="https://img.icons8.com/color/48/000000/mastercard.png" />
+          <img src="https://img.icons8.com/color-glass/48/000000/paypal.png" />
+          <img src="https://img.icons8.com/color/48/null/google-pay-india.png"/>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>Recent News</h3>
+
+        <ul>
+          <li>Our Secret Island Boat Tour Is Just for You</li>
+          <li>Chill and Escape in Our Natural Shelters</li>
+          <li>September in Luviana Hotel</li>
+          <li>Live Music Concerts at Luviana</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>For Customers</h3>
+        <ul>
+          <li>Customer Care/Help</li>
+          <li>FAQ</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Contact Us</h3>
+
+        <ul>
+          <li>3015 Grand Ave, Cocount Grove, Merrick Way FL 123456</li>
+          <li><i class="far fa-envelope"></i>demoexample@gmail.com </li>
+          <li><i class="far fa-phone-alt"></i>123 456 7898 </li>
+          <li><i class="far fa-phone-alt"></i>123 456 7898 </li>
+          <li><i class="far fa-comments"></i>24/ 7 Customer Services </li>
+        </ul>
+      
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
