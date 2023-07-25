@@ -1,0 +1,71 @@
+CREATE TRIGGER `T1` AFTER INSERT ON `roombook`
+ FOR EACH ROW BEGIN
+INSERT INTO booking VALUES(New.id,NEW.FName,NEW.LName,NEW.Phone,NEW.cout)
+END
+
+CREATE TRIGGER `bookingconformation` AFTER UPDATE ON `booking`
+ FOR EACH ROW BEGIN
+INSERT INTO bookingconfirmationd VALUES(New.id,NEW.FName,NEW.LName,NEW.Email,NEW.Phone,NEW.Cin,NEW.cout,NEW.Stat,NEW.nodays);
+END
+
+CREATE TRIGGER `t2` AFTER DELETE ON `roombook`
+ FOR EACH ROW BEGIN 
+INSERT INTO roombookdeletion VALUES(Old.id,Old.Title,Old.FName,Old.LName,Old.Email,Old.National,Old.Country,Old.Phone,Old.TRoom,Old.Bed,Old.NRoom,Old.Meal,Old.cin,Old.cout,Old.stat,Old.nodays);
+END
+
+NESTED QUERY-TO SHOW THE NUMBER OF BOOKINGS DONE IN A PARTICULAR YEAR
+SELECT Fname, Lname,Phone
+	FROM roombook
+	WHERE id IN 
+		( SELECT distinct id 		
+		  FROM payment
+		  WHERE YEAR(cout) = 2023);
+To show the records of the staff who are using the materials of department Restaurant
+SELECT s.Fname, s.phone,s.Address,m.mat
+	FROM staff s
+	WHERE dept IN 
+		( SELECT distinct dept 		
+		  FROM materials m where dept='Restaurant');
+
+
+A QUERY TO SHOW HOW MANY BOOKINGS WHERE MADE BY INDIANS IN A PARTICULAR YEAR
+SELECT count(*) AS 'Total Bookings' 	 		
+	FROM roombook
+	WHERE YEAR(cin) = 2023 AND NATIONAL='INDIAN' ;
+
+A QUERY TO SHOW HOW MANY BOOKINGS WHERE MADE BY NON-INDIANS IN A PARTICULAR YEAR
+SELECT count(*) AS 'Total Bookings' 	 		
+	FROM roombook
+	WHERE YEAR(cin) = 2023 AND NATIONAL='NON-INDIAN' ;
+
+
+JOINS
+THIS PROVIDES THE TABLE FOR WHICH THE PEOPLE HAVE BOOKED THEIR ROOM BUT 
+NOT HAVE MADE ANY PAYMENT
+SELECT r.ID,r.FName,r.LNAME,r.Phone,r.Email
+FROM `bookingconfirmatiiond` r JOIN PAYMENT P
+    	ON r.id != p.id
+	WHERE stat LIKE 'Not Conform' 
+
+
+THIS PROVIDES THE INFORMATION ABOUT THE USERS WHOSE PAYMENT IS DONE BUT 
+DONT HAVE THE ACCESS FOR NEWSLETTER AND WIFI
+SELECT r.ID,r.FName,r.LNAME,r.Email,r.Phone,C.approval
+FROM `roombook` r JOIN CONTACT c
+    	ON r.id = c.id
+	WHERE approval LIKE 'Not Allowed' AND stat='conform'
+
+
+THIS IS A CRUCIAL QUERY WHICH PROVIDES THE INFORMATION THAT 
+IF THERE IS CLASH TAKING PLACE BETWEEN 2 BOOKINGS WITH THE PROVIDED SPECIFICATION AND
+RANGE OF DATES
+ SELECT
+      roombook.id,roombook.fname,roombook.lname
+    FROM
+      roombook
+    WHERE
+      (roombook.cin<='2023-01-17' and roombook.cout>='2023-01-17' and roombook.TRoom='Deluxe Room' and roombook.Bed='triple')
+      OR
+      (roombook.cin<'2023-01-27' and roombook.cout>='2023-01-27' and roombook.TRoom='Deluxe Room' and roombook.Bed='triple')
+      OR
+      (roombook.cin>='2023-01-17' and roombook.cout<'2023-01-27'and roombook.TRoom='Deluxe Room'and roombook.Bed='triple');
